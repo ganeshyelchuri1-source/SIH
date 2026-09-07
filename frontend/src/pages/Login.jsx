@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Shield, Lock, Mail, KeyRound, AlertTriangle, ShieldCheck, ArrowRight, Loader2, Sparkles } from 'lucide-react';
+import { useNavigate, Link } from 'react-router-dom';
+import { Shield, Lock, Mail, KeyRound, AlertTriangle, ShieldCheck, ArrowRight, Loader2, Sparkles, ExternalLink, Globe, FileCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Login() {
@@ -91,8 +91,52 @@ export default function Login() {
       {/* Background Cyber Grid Lines */}
       <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-25 pointer-events-none"></div>
 
-      {/* Official Government Header Banner */}
-      <div className="w-full max-w-4xl text-center mb-6 space-y-2 z-10">
+      {/* Official Government Header Banner & Links */}
+      <div className="w-full max-w-4xl text-center mb-6 space-y-3 z-10">
+        {/* Top Government Official Links Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] text-slate-400 font-sans pb-1">
+          <a
+            href="https://www.mha.gov.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Ministry of Home Affairs, Government of India"
+            className="hover:text-cyan-300 flex items-center space-x-1 transition"
+          >
+            <Globe className="w-3 h-3 text-cyan-400" />
+            <span>Ministry of Home Affairs</span>
+          </a>
+          <span className="text-slate-700">•</span>
+          <a
+            href="https://ncrb.gov.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="National Crime Records Bureau Official Portal"
+            className="hover:text-cyan-300 flex items-center space-x-1 transition"
+          >
+            <span>National Crime Records Bureau</span>
+          </a>
+          <span className="text-slate-700">•</span>
+          <a
+            href="https://cybercrime.gov.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="National Cyber Crime Reporting Portal"
+            className="hover:text-cyan-300 flex items-center space-x-1 transition"
+          >
+            <span>National Cyber Crime Portal</span>
+          </a>
+          <span className="text-slate-700">•</span>
+          <a
+            href="https://www.digitalindia.gov.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Digital India E-Governance Initiative"
+            className="hover:text-cyan-300 flex items-center space-x-1 transition"
+          >
+            <span>Digital India Portal</span>
+          </a>
+        </div>
+
         <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 text-xs font-mono">
           <Shield className="w-3.5 h-3.5" />
           <span>MINISTRY OF HOME AFFAIRS • GOVERNMENT OF INDIA</span>
@@ -190,9 +234,15 @@ export default function Login() {
                 />
                 <span>Remember console</span>
               </label>
-              <span className="text-slate-500 hover:text-slate-400 cursor-pointer">
-                Reset credentials?
-              </span>
+              <a
+                href="https://cybercrime.gov.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Contact National Cyber Crime Help Desk for Credential Assistance"
+                className="text-cyan-400 hover:text-cyan-300 hover:underline"
+              >
+                Officer Support & Help Desk
+              </a>
             </div>
 
             <button
@@ -267,6 +317,171 @@ export default function Login() {
           </div>
         </div>
       </div>
+
+      {/* Official Government Portal Comprehensive Links Footer for Crawlers and Auditors */}
+      <footer className="w-full max-w-4xl mt-8 pt-6 border-t border-slate-800 text-xs text-slate-400 z-10 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          {/* Column 1: Operational Platform Modules */}
+          <div className="space-y-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-1.5">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Platform Custody Modules</span>
+            </h4>
+            <ul className="space-y-1 text-[11px]">
+              <li>
+                <Link to="/" title="Access Central Custody Dashboard" className="hover:text-cyan-300 transition">
+                  Central Custody Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link to="/cases" title="Browse Criminal Investigation Case Dossiers" className="hover:text-cyan-300 transition">
+                  Investigation Case Vault
+                </Link>
+              </li>
+              <li>
+                <Link to="/documents" title="Search Classified Legal Documents" className="hover:text-cyan-300 transition">
+                  Classified Document Repository
+                </Link>
+              </li>
+              <li>
+                <Link to="/integrity" title="Verify Document Provenance and Blockchain Ledger" className="hover:text-cyan-300 transition">
+                  Blockchain Integrity Ledger
+                </Link>
+              </li>
+              <li>
+                <Link to="/ai-intelligence" title="AI Document Intelligence and Search" className="hover:text-cyan-300 transition">
+                  AI Legal Intelligence Studio
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 2: Governance & Security Monitoring */}
+          <div className="space-y-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-1.5">
+              <Lock className="w-3.5 h-3.5" />
+              <span>Governance & Security</span>
+            </h4>
+            <ul className="space-y-1 text-[11px]">
+              <li>
+                <Link to="/security" title="Monitor System Security and Threat Incidents" className="hover:text-cyan-300 transition">
+                  Threat Monitoring & Risk Score
+                </Link>
+              </li>
+              <li>
+                <Link to="/access-requests" title="Classified Record Access Authorization Queue" className="hover:text-cyan-300 transition">
+                  Clearance Authorization Queue
+                </Link>
+              </li>
+              <li>
+                <Link to="/audit" title="Examine Immutable Forensic Audit Log" className="hover:text-cyan-300 transition">
+                  Forensic Audit Trail & CSV
+                </Link>
+              </li>
+              <li>
+                <Link to="/reports" title="Generate Form 65B BNSS Electronic Evidence Certificates" className="hover:text-cyan-300 transition">
+                  Official Compliance Reports
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://cybercrime.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Official Citizen Cybercrime Reporting Portal"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>National Cybercrime Portal</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Statutory Authority & Legal Frameworks */}
+          <div className="space-y-2">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-1.5">
+              <Globe className="w-3.5 h-3.5" />
+              <span>Statutory Compliance</span>
+            </h4>
+            <ul className="space-y-1 text-[11px]">
+              <li>
+                <a
+                  href="https://www.mha.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Ministry of Home Affairs Official Website"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>Ministry of Home Affairs (MHA)</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://ncrb.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="National Crime Records Bureau Official Portal"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>National Crime Records Bureau (NCRB)</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.indiacode.nic.in/handle/123456789/21431"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Section 63 of Bharatiya Nagarik Suraksha Sanhita 2023 Electronic Evidence"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>Section 63 BNSS Electronic Evidence</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.cert-in.org.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Indian Computer Emergency Response Team Official Portal"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>CERT-In National Cyber Defense</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.digitalindia.gov.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Digital India National E-Governance Division"
+                  className="hover:text-cyan-300 flex items-center space-x-1 transition"
+                >
+                  <span>Digital India E-Governance</span>
+                  <ExternalLink className="w-3 h-3 text-slate-500" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-4 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-[10px] text-slate-500 gap-2">
+          <div>
+            © 2026 National Crime Records Bureau • Ministry of Home Affairs, Government of India. All rights reserved.
+          </div>
+          <div className="flex items-center space-x-3">
+            <span className="text-cyan-500 font-mono">FIPS 180-4 SHA-256</span>
+            <span>•</span>
+            <span className="text-emerald-500 font-mono">Blockchain Anchored</span>
+            <span>•</span>
+            <span className="text-purple-500 font-mono">SIH26190</span>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
