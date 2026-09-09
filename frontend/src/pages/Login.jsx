@@ -16,6 +16,14 @@ export default function Login() {
 
   const demoAccounts = [
     {
+      role: 'Chief Super Admin (Master)',
+      email: 'ganesh@ncrb-demo.gov',
+      name: 'Director Ganesh Yelchuri',
+      badge: 'GANESH',
+      desc: 'Master Command Access: All cases, blockchain ledger, AI studio, threat center',
+      color: 'border-cyan-400/80 text-cyan-300 bg-cyan-950/40 ring-1 ring-cyan-500/40',
+    },
+    {
       role: 'Super Admin',
       email: 'admin@ncrb-demo.gov',
       name: 'Dr. Rajesh Verma',
@@ -59,11 +67,12 @@ export default function Login() {
 
   const handleQuickLogin = async (demoEmail) => {
     setEmail(demoEmail);
-    setPassword('Demo@2026');
+    const pwd = demoEmail.includes('ganesh') ? 'Ganesh@2026' : 'Demo@2026';
+    setPassword(pwd);
     setLoading(true);
     setError('');
     try {
-      await login(demoEmail, 'Demo@2026', mfaCode);
+      await login(demoEmail, pwd, mfaCode);
       navigate('/');
     } catch (err) {
       setError(err.message || 'Login failed');
@@ -180,7 +189,7 @@ export default function Login() {
                   type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. officer@ncrb-demo.gov or NCRB-INV-104"
+                  placeholder="e.g. ganesh or ganesh@ncrb-demo.gov or NCRB-INV-104"
                   className="w-full bg-slate-900 border border-slate-700 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:border-cyan-500 focus:outline-none font-mono"
                   required
                 />

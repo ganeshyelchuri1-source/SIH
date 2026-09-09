@@ -37,6 +37,7 @@ All demo accounts share the universal password: **`Demo@2026`**
 
 | Role | Official Email / ID | Default Password | Clearance & Capabilities |
 | :--- | :--- | :--- | :--- |
+| **Chief Super Admin** | `ganesh@ncrb-demo.gov` *(or `ganesh`)* | `Ganesh@2026` | Master Command Access: All cases, blockchain ledger, AI studio, threat center |
 | **Super Admin** | `admin@ncrb-demo.gov` | `Demo@2026` | Complete oversight, user directory, system security configuration |
 | **Investigating Officer** | `officer@ncrb-demo.gov` | `Demo@2026` | Case creation, FIR upload, evidence ingestion, document versioning |
 | **Legal Officer** | `legal@ncrb-demo.gov` | `Demo@2026` | Case legal review, court filings, official digital signing |
